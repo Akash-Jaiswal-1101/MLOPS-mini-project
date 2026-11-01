@@ -1,4 +1,4 @@
 [core]
-    remote = myremote-mini-mlops-project
-['remote "myremote-mini-mlops-project"']
-    url = /Users/akashjaiswal/Desktop/Data
+    remote = myremote
+['remote "myremote"']
+    url = s3://akash-mlops-mini-project

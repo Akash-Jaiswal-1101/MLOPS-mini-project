@@ -4,26 +4,15 @@ import json
 import mlflow
 import logging
 import os
-import dagshub
+# Set up DagsHub credentials for MLflow tracking
+dagshub_token = os.getenv("DAGSHUB_PAT")
+if not dagshub_token:
+    raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
 
-# # Set up DagsHub credentials for MLflow tracking
-# dagshub_token = os.getenv("DAGSHUB_PAT")
-# if not dagshub_token:
-#     raise EnvironmentError("DAGSHUB_PAT environment variable is not set")
-
-# os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
-# os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
-
-# dagshub_url = "https://dagshub.com"
-# repo_owner = "campusx-official"
-# repo_name = "mlops-mini-project"
-
-# # Set up MLflow tracking URI
-# mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
-
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
 mlflow.set_tracking_uri("https://dagshub.com/Akash-Jaiswal-1101/MLOPS-mini-project.mlflow")
-dagshub.init(repo_owner='Akash-Jaiswal-1101', repo_name='MLOPS-mini-project', mlflow=True)
 
 
 # logging configuration
